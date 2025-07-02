@@ -1,0 +1,18 @@
+# CV Placeholder
+
+This is a placeholder for Winodya's CV. 
+
+To add the actual CV:
+1. Place the PDF file in the `public` directory
+2. Name it `winodya-cv.pdf`
+3. The download button in the Hero section will automatically link to it
+
+The CV should include:
+- Contact Information
+- Professional Summary
+- Education (SLIIT, Open University)
+- Work Experience (EWIS Internship)
+- Technical Skills
+- Projects
+- Certifications
+- Languages
