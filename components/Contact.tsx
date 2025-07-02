@@ -225,6 +225,35 @@ const Contact = () => {
             </form>
           </div>
         </div>
+
+        {/* Enhanced Closing Section */}
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-primary-600/20 to-primary-700/20 backdrop-blur-sm border border-primary-600/30 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-4">Let's Build Something Amazing Together!</h3>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
+              Ready to turn your ideas into reality? I'm excited to collaborate with you on your next project. 
+              Whether it's a web application, mobile app, or any tech solution, let's make it happen!
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <span className="px-4 py-2 bg-primary-600/20 text-primary-400 rounded-full border border-primary-600/30">
+                💼 Available for Projects
+              </span>
+              <span className="px-4 py-2 bg-primary-600/20 text-primary-400 rounded-full border border-primary-600/30">
+                🚀 Quick Response Time
+              </span>
+              <span className="px-4 py-2 bg-primary-600/20 text-primary-400 rounded-full border border-primary-600/30">
+                ✨ Quality Guaranteed
+              </span>
+            </div>
+          </div>
+          
+          {/* Copyright */}
+          <div className="mt-12 pt-8 border-t border-dark-700">
+            <p className="text-gray-400 text-sm">
+              © 2025 Winodya Wijegunawardhana. Made with ❤️ using Next.js & Tailwind CSS
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
