@@ -8,6 +8,7 @@ import SectionWrapper from './Layout/SectionWrapper';
 import SectionTitle from './Layout/SectionTitle';
 import Card from './Layout/Card';
 import AnimatedButton from './UI/AnimatedButton';
+import Image from 'next/image';
 
 
 const Projects = () => {
@@ -28,7 +29,7 @@ const Projects = () => {
       github: "https://github.com/WinuWijegunawardhana98/BargainBazaar.git",
       achievements: ["Fully functional e-commerce solution", "Responsive design", "Secure payment integration"],
       category: "Full-Stack",
-      image: "bg-gradient-to-br from-green-500/20 to-blue-500/20"
+      image: "/Screenshot 2025-07-01 181638.png"
     },
     {
       title: "Case Cobra - E-Commerce Web Application",
@@ -37,7 +38,7 @@ const Projects = () => {
       github: "https://github.com/WinuWijegunawardhana98/Case-Cobra.git",
       achievements: ["Secure case tracking system", "Efficient tool for law firms", "Enhanced client communication"],
       category: "Web Application",
-      image: "bg-gradient-to-br from-purple-500/20 to-blue-500/20"
+      image: "/Screenshot 2025-07-01 181507.png"
     },
     {
       title: "Glamour Grab - Virtual Fitting Room",
@@ -46,7 +47,7 @@ const Projects = () => {
       github: "https://github.com/WinuWijegunawardhana98/FitConnect.git",
       achievements: ["Realistic fitting room simulation", "3D model integration", "Enhanced shopping experience"],
       category: "Innovation",
-      image: "bg-gradient-to-br from-cyan-500/20 to-purple-500/20"
+      image: "/applsci-11-10138-g011.webp"
     },
     {
       title: "OurCeylon.com - E-commerce Website",
@@ -54,7 +55,8 @@ const Projects = () => {
       technologies: ["WordPress", "WooCommerce", "Elementor", "PHP", "MySQL"],
       achievements: ["Fully functional e-commerce platform", "Scalable architecture", "Enhanced user experience"],
       category: "CMS Development",
-      image: "bg-gradient-to-br from-[#00ff88]/20 to-cyan-500/20"
+      image: "bg-gradient-to-br from-[#00ff88]/20 to-cyan-500/20",
+      website: "https://ourceylon.com"
     }
   ];
 
@@ -110,20 +112,37 @@ const Projects = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {filteredProjects.map((project, index) => (
-            <Card 
-              key={index} 
-              index={index} 
+            <Card
+              key={index}
+              index={index}
               delay={0.1}
               theme="mixed"
-              className="h-full"
+              className="h-full cursor-pointer"
+              onClick={() => {
+                if (project.website) {
+                  window.open(project.website, '_blank');
+                }
+              }}
             >
               <motion.div 
                 className="relative h-48 mb-6 rounded-lg overflow-hidden"
                 onHoverStart={() => setHoveredProject(index)}
                 onHoverEnd={() => setHoveredProject(null)}
               >
-                {/* Project image placeholder with gradient */}
-                <div className={`absolute inset-0 ${project.image}`}></div>
+                {/* Project image or gradient background */}
+                {["BargainBazaar E-commerce Application", "Case Cobra - E-Commerce Web Application", "Glamour Grab - Virtual Fitting Room"].includes(project.title) ? (
+                  <Image
+                    src={project.image}
+                    alt={project.title + " Screenshot"}
+                    fill
+                    className="object-cover absolute inset-0"
+                    style={{ zIndex: 1 }}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    priority
+                  />
+                ) : (
+                  <div className={`absolute inset-0 ${project.image}`}></div>
+                )}
                 
                 {/* Overlay with links on hover */}
                 <motion.div 
@@ -145,7 +164,9 @@ const Projects = () => {
                     </motion.a>
                   )}
                   <motion.a
-                    href="#"
+                    href={project.title === "OurCeylon.com - E-commerce Website" && project.website ? project.website : "#"}
+                    target={project.title === "OurCeylon.com - E-commerce Website" && project.website ? "_blank" : undefined}
+                    rel={project.title === "OurCeylon.com - E-commerce Website" && project.website ? "noopener noreferrer" : undefined}
                     className="p-3 bg-[#1a1a1a] rounded-full text-[#00ff88] hover:bg-[#00ff88] hover:text-black transition-all duration-300"
                     whileHover={{ scale: 1.2, rotate: -5 }}
                     whileTap={{ scale: 0.9 }}
@@ -211,7 +232,9 @@ const Projects = () => {
                       </motion.a>
                     )}
                     <motion.a
-                      href="#"
+                      href={project.title === "OurCeylon.com - E-commerce Website" && project.website ? project.website : "#"}
+                      target={project.title === "OurCeylon.com - E-commerce Website" && project.website ? "_blank" : undefined}
+                      rel={project.title === "OurCeylon.com - E-commerce Website" && project.website ? "noopener noreferrer" : undefined}
                       className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300"
                       whileHover={{ scale: 1.2, y: -2 }}
                     >

@@ -34,6 +34,21 @@ const Experience = () => {
         "Delivered multiple projects meeting tight deadlines",
         "Gained hands-on experience in full-stack development"
       ]
+    },
+    {
+      title: "Trainee Software Engineer",
+      company: "MBiz Software",
+      duration: "July 4, 2025 - Present",
+      location: "Sri Lanka",
+      type: "Full-Time",
+      responsibilities: [
+        "Assisting in the development and maintenance of web applications",
+        "Collaborating with senior engineers on software design and implementation",
+        "Participating in code reviews and agile team meetings",
+        "Learning and applying best practices in software engineering"
+      ],
+      technologies: ["Agile", "Git", "PHP"],
+      achievements: []
     }
   ];
 

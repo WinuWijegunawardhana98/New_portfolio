@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, Mail, FileDown, Sparkles, User, Code } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 
 // Define a type for particle properties
@@ -214,10 +215,14 @@ const Hero = () => {
               <div className="h-64 w-64 md:h-80 md:w-80 rounded-full border-4 border-[#00ff88] p-2 relative overflow-hidden green-glow">
                 <div className="h-full w-full rounded-full overflow-hidden bg-gradient-to-b from-[#1a1a1a] to-black">
                   {/* Replace this with an actual profile image when available */}
-                  <div className="h-full w-full flex items-center justify-center text-[#00ff88]">
-                    <User size={100} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  </div>
+                  <Image
+                    src="/me.jpg"
+                    alt="Winodya Wijegunawardhana profile picture"
+                    width={320}
+                    height={320}
+                    className="object-cover h-full w-full rounded-full"
+                    priority
+                  />
                 </div>
                 
                 {/* Floating tech icons around the profile */}
