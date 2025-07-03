@@ -11,6 +11,7 @@ interface CardProps {
   theme?: GradientTheme;
   delay?: number;
   index?: number;
+  onClick?: () => void;
 }
 
 const Card = ({ 
@@ -19,6 +20,7 @@ const Card = ({
   theme = 'green',
   delay = 0,
   index = 0,
+  onClick
 }: CardProps) => {
   // Define different gradient themes
   const gradientThemes = {
@@ -54,10 +56,11 @@ const Card = ({
       className={`group h-full ${className}`}
     >
       <div 
+        onClick={onClick}
         className={`bg-[#1a1a1a] p-4 sm:p-5 lg:p-6 rounded-lg hover:bg-[#1e1e1e] transition-all duration-500 
           border border-[#3a3a3a] ${borderThemes[theme]} 
           hover:shadow-lg ${hoverGlowThemes[theme]}
-          relative overflow-hidden h-full flex flex-col`}
+          relative overflow-hidden h-full flex flex-col ${onClick ? 'cursor-pointer' : ''}`}
       >
         {/* Background gradient effect */}
         <div className={`absolute inset-0 bg-gradient-to-br ${gradientThemes[theme]} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>

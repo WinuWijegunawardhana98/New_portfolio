@@ -1,10 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, FileDown, Sparkles, User, Code } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, Sparkles, User, Download } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-
 
 // Define a type for particle properties
 interface Particle {
@@ -38,10 +37,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#01131f]">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -inset-10 opacity-50">
+        <div className="absolute -inset-10 opacity-20">
           {particles.map((particle) => (
             <motion.div
               key={particle.id}
@@ -66,20 +65,21 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+      {/* Main Content Container */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left side content - Text */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 lg:text-left text-center lg:w-1/2"
+            className="space-y-6 lg:text-left text-center lg:col-span-7 order-2 lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-[#1a1a1a] px-4 py-2 rounded-full border border-[#3a3a3a]"
+              className="inline-flex items-center gap-2 bg-[#0b2230] px-4 py-2 rounded-full border border-[#194259]"
             >
               <Sparkles className="text-[#00ff88]" size={18} />
               <span className="text-gray-300 text-sm">Available for new opportunities</span>
@@ -96,19 +96,12 @@ const Hero = () => {
             </motion.h1>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-wrap gap-3 lg:justify-start justify-center"
+              className="text-xl md:text-3xl font-medium text-[#00ff88]"
             >
-              <div className="flex items-center gap-2 bg-[#1a1a1a]/50 px-4 py-2 rounded-full">
-                <Code size={16} className="text-[#00ff88]" />
-                <span className="text-gray-300">Full-Stack Developer</span>
-              </div>
-              <div className="flex items-center gap-2 bg-[#1a1a1a]/50 px-4 py-2 rounded-full">
-                <User size={16} className="text-[#00ff88]" />
-                <span className="text-gray-300">Software Engineer</span>
-              </div>
+              Frontend Developer
             </motion.div>
 
             <motion.p
@@ -117,8 +110,8 @@ const Hero = () => {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="text-lg text-gray-400 max-w-2xl lg:mx-0 mx-auto"
             >
-              A motivated and results-driven Software Engineering student with hands-on 
-              experience in full-stack development, web technologies, and problem-solving.
+              A motivated and results-driven Software Engineering professional with expertise in 
+              frontend development, creating elegant and responsive web experiences.
             </motion.p>
 
             <motion.div
@@ -127,73 +120,61 @@ const Hero = () => {
               transition={{ delay: 0.8, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 lg:justify-start justify-center items-center"
             >
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 rounded-full font-semibold hover-glow transition-all duration-300 flex items-center gap-2"
-              style={{ backgroundColor: '#00ff88', color: '#000000' }}
-            >
-              Get In Touch
-              <Mail size={18} />
-            </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-full font-semibold hover-glow transition-all duration-300 flex items-center gap-2"
+                style={{ backgroundColor: '#00ff88', color: '#01131f' }}
+              >
+                <User size={18} />
+                Contact Me
+              </motion.a>
 
-            <motion.a
-              href="/Resume-Winodya-Wijegunawardhana.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 px-8 py-3 rounded-full font-semibold hover:text-black transition-all duration-300 flex items-center gap-2"
-              style={{ 
-                borderColor: '#00ff88', 
-                color: '#00ff88',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#00ff88';
-                e.currentTarget.style.color = '#000000';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = '#00ff88';
-              }}
-            >
-              Download CV
-              <FileDown size={18} />
-            </motion.a>
-          </motion.div>
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-3 rounded-full font-semibold transition-all duration-300 flex items-center gap-2"
+                style={{ backgroundColor: 'rgba(11, 34, 48, 0.6)', backdropFilter: 'blur(4px)', color: 'white' }}
+              >
+                <Download size={18} />
+                Download CV
+              </motion.a>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0, duration: 0.8 }}
-            className="flex lg:justify-start justify-center gap-6 pt-8"
-          >
-            <motion.a
-              href="https://github.com/WinuWijegunawardhana98"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -5 }}
-              className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300"
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.0, duration: 0.8 }}
+              className="flex lg:justify-start justify-center gap-6 pt-6"
             >
-              <Github size={24} />
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/winodya-wijegunawardhana"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, y: -5 }}
-              className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300"
-            >
-              <Linkedin size={24} />
-            </motion.a>
-            <motion.a
-              href="mailto:winodyawijegunawardhana@gmail.com"
-              whileHover={{ scale: 1.2, y: -5 }}
-              className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300"
-            >
-              <Mail size={24} />
-            </motion.a>
-          </motion.div>
+              <motion.a
+                href="https://github.com/WinuWijegunawardhana98"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -5 }}
+                className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300 flex items-center justify-center h-10 w-10 rounded-full border border-[#194259] bg-[#0b2230]"
+              >
+                <Github size={20} />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com/in/winodya-wijegunawardhana"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -5 }}
+                className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300 flex items-center justify-center h-10 w-10 rounded-full border border-[#194259] bg-[#0b2230]"
+              >
+                <Linkedin size={20} />
+              </motion.a>
+              <motion.a
+                href="mailto:winodyawijegunawardhana@gmail.com"
+                whileHover={{ scale: 1.2, y: -5 }}
+                className="text-gray-400 hover:text-[#00ff88] transition-colors duration-300 flex items-center justify-center h-10 w-10 rounded-full border border-[#194259] bg-[#0b2230]"
+              >
+                <Mail size={20} />
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           {/* Right side content - Profile Picture */}
@@ -201,55 +182,67 @@ const Hero = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative lg:w-1/2 flex justify-center"
+            className="relative lg:col-span-5 flex justify-center order-1 lg:order-2"
           >
             <div className="relative">
-              {/* Animated border/glow effect */}
-              <div className="absolute inset-0 rounded-full border-2 border-[#00ff88] opacity-75 animate-pulse"></div>
+              {/* Backdrop glow */}
+              <motion.div 
+                className="absolute -inset-4 bg-[#00ff88]/10 blur-xl -z-10"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
               
-              {/* Background pattern/circle */}
-              <div className="absolute -inset-4 bg-[#1a1a1a] rounded-full blur-sm -z-10"></div>
-              <div className="absolute -inset-8 bg-gradient-to-br from-[#00ff88]/20 to-transparent rounded-full blur-md -z-20"></div>
-              
-              {/* Profile image with frame */}
-              <div className="h-64 w-64 md:h-80 md:w-80 rounded-full border-4 border-[#00ff88] p-2 relative overflow-hidden green-glow">
-                <div className="h-full w-full rounded-full overflow-hidden bg-gradient-to-b from-[#1a1a1a] to-black">
-                  {/* Replace this with an actual profile image when available */}
+              {/* Profile image with modern effect */}
+              <div className="relative h-auto w-full max-w-[450px] overflow-hidden rounded-lg shadow-[0_0_15px_rgba(0,255,136,0.3)]">
+                {/* Enhanced visibility - reduced overlays and removed vertical line */}
+                
+                {/* Subtle overlay for professional look - reduced opacity for better visibility */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#01131f]/40 to-transparent z-10" />
+                
+                {/* Main image container with professional styling */}
+                <div className="relative">
+                  {/* Subtle vignette effect - reduced opacity for better visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
+                  
                   <Image
                     src="/me.jpg"
-                    alt="Winodya Wijegunawardhana profile picture"
-                    width={320}
-                    height={320}
-                    className="object-cover h-full w-full rounded-full"
+                    alt="Winodya profile picture"
+                    width={600}
+                    height={800}
+                    className="object-cover w-full min-h-[500px] brightness-110 contrast-105"
                     priority
                   />
+                  
+                  {/* Subtle pattern overlay */}
+                  <motion.div 
+                    className="absolute inset-0 z-20 opacity-5 mix-blend-overlay"
+                    style={{ 
+                      backgroundImage: 'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
+                      backgroundSize: '4px 4px',
+                      backgroundPosition: '0 0, 2px 2px'
+                    }}
+                  />
                 </div>
-                
-                {/* Floating tech icons around the profile */}
-                <motion.div 
-                  className="absolute top-5 -right-4 bg-[#1a1a1a] p-2 rounded-full border border-[#3a3a3a]"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className="text-2xl">⚛️</span>
-                </motion.div>
-                
-                <motion.div 
-                  className="absolute -bottom-2 -left-4 bg-[#1a1a1a] p-2 rounded-full border border-[#3a3a3a]"
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className="text-2xl">🚀</span>
-                </motion.div>
-                
-                <motion.div 
-                  className="absolute top-1/4 -left-6 bg-[#1a1a1a] p-2 rounded-full border border-[#3a3a3a]"
-                  animate={{ x: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <span className="text-2xl">🌟</span>
-                </motion.div>
               </div>
+              
+              {/* Modern accents - instead of orbiting circles */}
+              <motion.div 
+                className="absolute -bottom-2 -left-4 h-16 w-16 border-l-2 border-b-2 border-[#00ff88]/70"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              <motion.div 
+                className="absolute -top-2 -right-4 h-16 w-16 border-r-2 border-t-2 border-[#00ff88]/70"
+                animate={{ opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+              
+              <motion.div
+                className="absolute top-1/2 -right-2 h-4 w-8 bg-[#00ff88]"
+                animate={{ opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
             </div>
           </motion.div>
         </div>

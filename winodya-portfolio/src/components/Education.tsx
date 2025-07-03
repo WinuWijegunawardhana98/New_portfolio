@@ -15,7 +15,19 @@ const Education = () => {
     threshold: 0.1,
   });
 
-  const education = [
+  interface EducationItem {
+    degree: string;
+    institution: string;
+    duration: string;
+    location: string;
+    status: string;
+    specialization: string;
+    coursework: string[];
+    highlights?: string[];
+    theme: 'green' | 'blue' | 'purple' | 'cyan';
+  }
+
+  const education: EducationItem[] = [
     {
       degree: "Bachelor of Science (Hons) in Information Technology",
       institution: "Sri Lanka Institute of Information Technology (SLIIT)",
@@ -66,22 +78,16 @@ const Education = () => {
       theme: 'purple' as const
     },
     {
-      degree: "General Certificate of Education Advanced Level",
-      institution: "St. Mary's College",
+      degree: "G.C.E ADVANCED LEVEL",
+      institution: "Yasodara Devi Balika, Gampaha",
       duration: "2017 - 2019",
       location: "Sri Lanka",
       status: "Completed",
-      specialization: "Commerce Stream",
+      specialization: "Biology Stream",
       coursework: [
-        "Business Studies",
-        "Economics",
-        "Accounting",
-        "Information Technology"
-      ],
-      highlights: [
-        "Achieved high grades in all subjects",
-        "Participated in various extracurricular activities",
-        "Developed strong analytical and problem-solving skills"
+        "Biology",
+        "Physics",
+        "Chemistry"
       ],
       theme: 'blue' as const
     }
@@ -202,7 +208,7 @@ const Education = () => {
                 </ul>
               </div>
               
-              {idx === 0 && (
+              {idx === 0 && item.highlights && item.highlights.length > 0 && (
                 <div>
                   <h5 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
                     <CheckCircle className="text-[#00ff88] flex-shrink-0" size={16} />
@@ -261,7 +267,7 @@ const Education = () => {
               )}
             </div>
             
-            {idx !== 0 && (
+            {idx !== 0 && item.highlights && item.highlights.length > 0 && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}

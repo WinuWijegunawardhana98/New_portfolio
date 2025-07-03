@@ -60,7 +60,7 @@ const About = () => {
         >
           <Card theme="mixed" className="overflow-hidden">
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-6 gradient-text">Winodya Wijegunawardhana</h3>
+              <h3 className="text-2xl font-bold mb-6 gradient-text">Wijegunawardhana G.P.W</h3>
               <p className="text-gray-300 mb-4 leading-relaxed">
                 A motivated and results-driven Software Engineering student at Sri Lanka Institute of Information Technology with hands-on 
                 experience in full-stack development, web technologies, and problem-solving.
@@ -73,7 +73,7 @@ const About = () => {
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
                   <p className="text-gray-400 text-sm">Name:</p>
-                  <p className="text-white font-medium">Winodya W.</p>
+                  <p className="text-white font-medium">G.P.W. Wijegunawardhana</p>
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email:</p>
