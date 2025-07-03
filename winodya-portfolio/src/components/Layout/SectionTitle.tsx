@@ -31,7 +31,7 @@ const SectionTitle = ({
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
-      className={`mb-16 ${centered ? 'text-center' : ''}`}
+      className={`mb-10 md:mb-12 lg:mb-16 ${centered ? 'text-center' : ''}`}
     >
       <h2 
         className="text-4xl md:text-5xl font-bold mb-4"

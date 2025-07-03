@@ -54,7 +54,7 @@ const Card = ({
       className={`group h-full ${className}`}
     >
       <div 
-        className={`bg-[#1a1a1a] p-6 sm:p-8 rounded-lg hover:bg-[#1e1e1e] transition-all duration-500 
+        className={`bg-[#1a1a1a] p-4 sm:p-5 lg:p-6 rounded-lg hover:bg-[#1e1e1e] transition-all duration-500 
           border border-[#3a3a3a] ${borderThemes[theme]} 
           hover:shadow-lg ${hoverGlowThemes[theme]}
           relative overflow-hidden h-full flex flex-col`}

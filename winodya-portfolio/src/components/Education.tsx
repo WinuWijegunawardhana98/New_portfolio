@@ -6,9 +6,10 @@ import { GraduationCap, Calendar, MapPin, BookOpen, Star, CheckCircle } from 'lu
 import SectionWrapper from './Layout/SectionWrapper';
 import SectionTitle from './Layout/SectionTitle';
 import Card from './Layout/Card';
-import AnimatedButton from './UI/AnimatedButton';
+
 
 const Education = () => {
+  // Setup animation without relying on inView
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -94,11 +95,14 @@ const Education = () => {
         subtitle="My academic background and continuing education"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8" ref={ref}>
         {education.map((item, idx) => (
           <Card 
             key={idx} 
-            className={idx === 0 ? 'lg:col-span-12' : 'lg:col-span-6'}
+            className={
+              idx === 0 ? 'lg:col-span-12' : 
+              'lg:col-span-6 max-h-[400px] overflow-y-auto'
+            }
             theme={item.theme}
             index={idx}
             delay={0.1}
@@ -165,19 +169,18 @@ const Education = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-              <div>
-                <h5 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
-                  <Star className={`${
-                    item.theme === 'cyan' 
-                      ? 'text-cyan-400' 
-                      : item.theme === 'purple'
-                      ? 'text-purple-400'
-                      : 'text-blue-400'
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
+              <div>                <h5 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
+                    <Star className={`${
+                      item.theme === 'cyan' 
+                        ? 'text-cyan-400' 
+                        : item.theme === 'purple'
+                        ? 'text-purple-400'
+                        : 'text-blue-400'
                   } flex-shrink-0`} size={16} />
                   Key Coursework
                 </h5>
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   {item.coursework.slice(0, 5).map((course, courseIdx) => (
                     <motion.li
                       key={courseIdx}
@@ -201,11 +204,11 @@ const Education = () => {
               
               {idx === 0 && (
                 <div>
-                  <h5 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
+                  <h5 className="text-base font-semibold text-white mb-2 flex items-center gap-2">
                     <CheckCircle className="text-[#00ff88] flex-shrink-0" size={16} />
                     Highlights
                   </h5>
-                  <ul className="space-y-2">
+                  <ul className="space-y-1">
                     {item.highlights.map((highlight, hiIdx) => (
                       <motion.li
                         key={hiIdx}
@@ -222,7 +225,7 @@ const Education = () => {
                 </div>
               )}
               
-              {idx !== 0 && item.coursework.length > 5 && (
+              {idx !== 0 && item.coursework.length > 5 && idx < 2 && (
                 <div>
                   <h5 className="text-base font-semibold text-white mb-3 flex items-center gap-2">
                     <Star className={`${
@@ -263,9 +266,9 @@ const Education = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + (idx * 0.2) }}
-                className="mt-6 pt-4 border-t border-[#3a3a3a]"
+                className="mt-4 pt-3 border-t border-[#3a3a3a]"
               >
-                <h5 className="text-base font-semibold text-white mb-3">Achievements</h5>
+                <h5 className="text-base font-semibold text-white mb-2">Achievements</h5>
                 {item.highlights.map((highlight, hiIdx) => (
                   <motion.div
                     key={hiIdx}

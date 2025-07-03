@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, Mail, ExternalLink, FileDown, Sparkles, User, Code } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, Mail, FileDown, Sparkles, User, Code } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
+
 
 // Define a type for particle properties
 interface Particle {

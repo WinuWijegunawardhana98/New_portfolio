@@ -7,7 +7,6 @@ import SectionWrapper from './Layout/SectionWrapper';
 import SectionTitle from './Layout/SectionTitle';
 import Card from './Layout/Card';
 import AnimatedButton from './UI/AnimatedButton';
-import AnimatedIcon from './UI/AnimatedIcon';
 
 const About = () => {
   const [ref, inView] = useInView({

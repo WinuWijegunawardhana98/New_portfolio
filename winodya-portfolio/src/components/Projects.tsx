@@ -3,15 +3,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Zap, Code, Briefcase, Search, Filter } from 'lucide-react';
+import { ExternalLink, Github, Code, Search, Filter } from 'lucide-react';
 import SectionWrapper from './Layout/SectionWrapper';
 import SectionTitle from './Layout/SectionTitle';
 import Card from './Layout/Card';
 import AnimatedButton from './UI/AnimatedButton';
-import AnimatedIcon from './UI/AnimatedIcon';
+
 
 const Projects = () => {
-  const [ref, inView] = useInView({
+  // Setup animation with useInView hook
+  const { inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });

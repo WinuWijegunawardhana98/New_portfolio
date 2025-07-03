@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, ReactNode } from 'react';
-import { motion, AnimatePresence, easeInOut, easeOut } from 'framer-motion';
+import { motion, easeOut } from 'framer-motion';
 
 type AnimationContextType = {
   animationComplete: boolean;
@@ -68,8 +68,10 @@ export const AnimatedSection = ({
   direction?: "up" | "down" | "left" | "right";
   delay?: number;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let animationProps: any = {};
   
   switch (animation) {

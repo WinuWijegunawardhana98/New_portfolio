@@ -28,7 +28,7 @@ const SectionWrapper = ({
     <section 
       id={id} 
       ref={ref}
-      className={`relative py-24 ${noBottomPadding ? 'pb-0' : 'pb-24'} ${className}`}
+      className={`relative py-16 md:py-20 lg:py-24 ${noBottomPadding ? 'pb-0' : 'lg:pb-24 md:pb-20 pb-16'} ${className}`}
       style={{ backgroundColor: '#000000', ...style }}
     >
       {/* Background elements for visual interest */}
