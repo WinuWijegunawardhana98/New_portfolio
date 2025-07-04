@@ -101,7 +101,7 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-xl md:text-3xl font-medium text-[#00ff88]"
             >
-              Frontend Developer
+              Full Stack Developer
             </motion.div>
 
             <motion.p
